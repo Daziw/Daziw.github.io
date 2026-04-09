@@ -1,16 +1,19 @@
-<div style="max-width:800px; margin:40px auto; padding:0 20px;">
+<!-- 给 body 直接设置全屏背景色，解决底部空白问题 -->
+<body style="margin:0; background:#fff9e6;">
+
+<div style="max-width:800px; margin:40px auto; padding:0 20px; background:#fff9e6;">
   <h2 style="text-align:center; margin-bottom:30px;">用友采购系统实习记录</h2>
 
-  <!-- 每日卡片列表 -->
-  <div style="background: #ffffff; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-    <div style="font-size: 14px; color: #666; margin-bottom: 6px;">2026-04-09</div>
-    <div style="font-size: 15px; line-height: 1.6;">远程服务器排查登录页面，分析 login.html 及 JS 登录逻辑</div>
+  <!-- 卡片：柔光黄 + 加粗黑边框 -->
+  <div style="background:#fff9e6; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-size:14px; color:#666; margin-bottom:6px;">2026-04-08</div>
+    <div style="font-size:15px; line-height:1.6;">远程连接服务器，定位 login.html 与相关 JS 文件，梳理登录逻辑；修改页面，移除账号密码登录，仅保留证书登录，并优化前端代码。</div>
   </div>
 
-  <div style="background: #ffffff; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-    <div style="font-size: 14px; color: #666; margin-bottom: 6px;">2026-04-09</div>
-    <div style="font-size: 15px; line-height: 1.6;">搭建个人前端网站并部署至 GitHub Pages</div>
+  <div style="background:#fff9e6; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-size:14px; color:#666; margin-bottom:6px;">2026-04-09</div>
+    <div style="font-size:15px; line-height:1.6;">从 GitLab 克隆采购系统代码，本地部署项目；检查 pom.xml 依赖冲突，修改 JDK 版本适配环境；排查并解决 userList.jsp 资源文件 404 报错，问题根源为路径配置错误。</div>
   </div>
-
-  <!-- 以后每天复制上面一整块 粘贴在这里 -->
 </div>
+
+</body>
