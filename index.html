@@ -17,6 +17,15 @@
     <div style="font-size:14px; color:#666; margin-bottom:6px;">2026-04-09</div>
     <div style="font-size:15px; line-height:1.6;">从 GitLab 克隆采购系统代码，本地部署项目；检查 pom.xml 依赖冲突，修改 JDK 版本适配环境；排查并解决 userList.jsp 资源文件 404 报错，问题根源为路径配置错误。</div>
   </div>
+
+   <!-- 4月10日 -->
+  <div style="background:#fff9e6; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-size:14px; color:#666; margin-bottom:6px;">2026-04-10</div>
+    <div style="font-size:15px; line-height:1.6;">访问 userlist.jsp 报 404，原因是页面路径写错，实际文件在 pages/user/ 目录下，代码错误指向 page 目录，混淆 JSP 与 JS 文件路径，修正后正常访问。</div>
+    <div style="font-size:15px; line-height:1.6;">本地 Tomcat 配置 UTF-8 仍出现乱码，项目为老项目采用 GBK 编码体系，修改 Tomcat 配置文件适配编码后依旧不兼容，最终切换为项目提供的 Tomcat 7，编码匹配，乱码问题解决。</div>
+  </div>
+  
 </div>
+
 
 </body>
