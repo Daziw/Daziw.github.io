@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 实现电脑+手机适配 */
+/* 电脑+手机适配 */
 @media (max-width:768px) {
   body { font-size: 18px; }
 }
@@ -11,24 +11,37 @@
 <body style="margin:0; background:#fff9e6;">
 
 <div style="max-width:800px; margin:40px auto; padding:0 20px;">
-  <h2 style="text-align:center; margin-bottom:30px;">用友采购系统实习记录</h2>
 
-  <div style="border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+  <!-- 顶部头像+名字 -->
+  <div style="text-align:center; margin-bottom:30px;">
+    <img 
+      src="柴犬.png" 
+      alt="头像"
+      style="width:120px; height:120px; border-radius:50%; border:3px solid #000; object-fit:cover;">
+    <h2 style="margin-top:12px;">wangxd</h2>
+    <p style="color:#666; margin-top:4px;">用友采购系统 | 实习记录</p>
+  </div>
+
+  <h2 style="text-align:center; margin-bottom:30px;">实习日志</h2>
+
+  <!-- 卡片背景改为白色，背景保持柔光黄 -->
+  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
     <div style="font-size:14px; color:#666;">2026-04-08</div>
     <div style="font-size:15px; line-height:1.6;">远程连接服务器，定位 login.html 与相关 JS 文件，梳理登录逻辑；修改页面，移除账号密码登录，仅保留证书登录，并优化前端代码。</div>
   </div>
 
-  <div style="border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
     <div style="font-size:14px; color:#666;">2026-04-09</div>
     <div style="font-size:15px; line-height:1.6;">从 GitLab 克隆采购系统代码，本地部署项目；检查 pom.xml 依赖冲突，修改 JDK 版本适配环境；排查并解决 userList.jsp 资源文件 404 报错，问题根源为路径配置错误。</div>
   </div>
 
-  <div style="border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
+  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
     <div style="font-size:14px; color:#666;">2026-04-10</div>
     <div style="font-size:15px; line-height:1.6;">1.访问 userlist.jsp 报 404，原因是页面路径写错，实际文件在 pages/user/ 目录下，代码错误指向 page 目录，混淆 JSP 与 JS 文件路径，修正后正常访问。</div>
     <div style="font-size:15px; line-height:1.6;">2.本地 Tomcat 配置 UTF-8 仍出现乱码，项目为老项目采用 GBK 编码体系，修改 Tomcat 配置文件适配编码后依旧不兼容，最终切换为项目提供的 Tomcat 7，编码匹配，乱码问题解决。</div>
     <div style="font-size:15px; line-height:1.6;">3.修复修改用户密码功能点保存一直转圈的bug：找到问题是角色/部门名称没数据时代码报错，导致loading关不掉。给代码加了空判断、修正了数据格式、调整了loading关闭顺序，还补了请求超时和失败的处理，彻底解决转圈问题。</div>
   </div>
+
 </div>
 
 </body>
