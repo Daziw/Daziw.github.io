@@ -2,104 +2,188 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 电脑+手机适配 */
-@media (max-width:768px) {
-  body { font-size: 18px; }
-}
-/* 代码框样式 */
-.code-block {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 10px 12px;
-  margin: 8px 0;
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.4;
-  white-space: pre-wrap;
-}
+  /* 全局基础样式 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #fff9e6;
+    font-family: sans-serif;
+  }
+
+  /* 容器：最大宽度 + 居中 */
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* 卡片通用样式：白色黑边圆角 */
+  .card {
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  /* 顶部大卡片：头像+名字专用 */
+  .card-top {
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* 头像样式 */
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    object-fit: cover;
+  }
+
+  /* 标题通用 */
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* 日志日期 */
+  .log-date {
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* 日志内容 */
+  .log-content {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 6px;
+  }
+
+  /* 代码框样式（模板调用） */
+  .code-block {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+  }
+
+  /* 列表序号样式 */
+  .log-list {
+    padding-left: 20px;
+  }
+  .log-list li {
+    margin-bottom: 4px;
+  }
+
+  /* 电脑+手机适配 */
+  @media (max-width: 768px) {
+    body {
+      font-size: 18px;
+    }
+  }
 </style>
 
-<body style="margin:0; background:#fff9e6;">
+<body>
 
-<div style="max-width:800px; margin:40px auto; padding:0 20px;">
+  <div class="container">
 
-  <!-- 顶部头像+名字 白色卡片 -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:24px; margin-bottom:20px; text-align:center;">
-    <img 
-      src="柴犬.png" 
-      alt="头像"
-      style="width:120px; height:120px; border-radius:50%; border:3px solid #000; object-fit:cover;">
-    <h2 style="margin-top:12px; margin-bottom:0;">王</h2>
-  </div>
-
-  <h2 style="text-align:center; margin-bottom:20px;">用友采购系统实习日志</h2>
-
-
-<!-- ==================== 2026-04-08 ====================== -->
-<!-- ================= 前端页面修改 ======================= -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-08</div>
-    <div style="font-size:15px; line-height:1.6;">远程连接服务器，定位登录页面与相关JS文件，梳理登录逻辑；<strong>修改页面，移除账号密码登录，仅保留证书登录，并优化前端代码</strong>。</div>
-  </div>
-<!-- ======================= 结束 =============================== -->
-
-
-<!-- ==================== 2026-04-09 ====================== -->
-<!-- ================= 项目本地部署 ======================= -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-09</div>
-    <div style="font-size:15px; line-height:1.6;">从代码仓库克隆项目源码，本地部署运行；<strong>检查依赖配置冲突，修改JDK版本适配环境；排查并解决页面资源404报错，定位问题根源为路径配置错误</strong>。</div>
-  </div>
-<!-- ======================= 结束 =============================== -->
-
-
-<!-- ==================== 2026-04-10 ====================== -->
-<!-- ================ 问题排查与BUG修复 ==================== -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-10</div>
-    <div style="font-size:15px; line-height:1.6;">访问页面报404，原因是文件路径配置错误，修正路径后正常访问；<strong>解决本地Tomcat编码与项目不兼容导致的乱码问题（切换匹配Tomcat版本）</strong>；<strong>修复数据保存功能加载异常BUG，通过添加空值判断、修正数据格式、调整加载状态逻辑、完善异常处理，彻底解决问题</strong>。</div>
-  </div>
-<!-- ======================= 结束 =============================== -->
-
-
-<!-- ==================== 2026-04-13 ====================== -->
-<!-- ================= 项目结构与BUG排查 =================== -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-13</div>
-    <div style="font-size:15px; line-height:1.6;"><strong>熟悉项目整体结构，明确数据层、权限层、web展示层的核心职责</strong>；<strong>掌握前端BUG排查方法：查看页面脚本、定位功能函数、通过浏览器控制台查看网络与日志报错，快速定位问题目录</strong>。</div>
-  </div>
-<!-- ======================= 结束 =============================== -->
-
-
-<!-- ==================== 2026-04-16 ====================== -->
-<!-- ================ 业务数据统计SQL ===================== -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-16</div>
-    <div style="font-size:15px; line-height:1.6;">
-      根据业务统计需求，<strong>优化SQL语句实现按日统计单据数量功能</strong>，通用SQL语句如下：
+    <!-- 顶部头像+名字 -->
+    <div class="card card-top">
+      <img src="柴犬.png" alt="头像" class="avatar">
+      <h2>王</h2>
     </div>
-    <div class="code-block">SELECT DATE(日期字段) AS 日期, COUNT(统计字段) AS 数量
+
+    <h2 class="title">用友采购系统实习日志</h2>
+
+    <!-- 2026-04-08 -->
+    <div class="card">
+      <div class="log-date">2026-04-08</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、远程连接服务器，定位登录页面与相关JS文件，梳理登录逻辑</div>
+          <div>2、<strong>修改页面，移除账号密码登录，仅保留证书登录，并优化前端代码</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026-04-09 -->
+    <div class="card">
+      <div class="log-date">2026-04-09</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、从代码仓库克隆项目源码，完成本地部署运行</div>
+          <div>2、<strong>检查依赖配置冲突，修改JDK版本适配环境</strong></div>
+          <div>3、<strong>排查并解决页面资源404报错，定位问题根源为路径配置错误</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026-04-10 -->
+    <div class="card">
+      <div class="log-date">2026-04-10</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、访问页面报404，原因是文件路径配置错误，修正路径后页面正常访问</div>
+          <div>2、<strong>解决本地部署中文乱码问题，因TongWeb默认编码为GBK，使用项目提供的配置好的Tomcat替换后乱码消失</strong></div>
+          <div>3、<strong>修复数据保存功能加载异常BUG，通过添加空值判断、修正数据格式、调整加载状态逻辑、完善异常处理，彻底解决问题</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026-04-13 -->
+    <div class="card">
+      <div class="log-date">2026-04-13</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、<strong>熟悉项目整体结构，明确数据层、权限层、web展示层的核心职责</strong></div>
+          <div>2、<strong>掌握前端BUG排查方法：查看页面脚本、定位功能函数、通过浏览器控制台查看网络与日志报错，快速定位问题目录</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026-04-16 -->
+    <div class="card">
+      <div class="log-date">2026-04-16</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、根据业务统计需求，<strong>优化SQL语句实现按日统计单据数量功能</strong>，通用SQL语句如下：</div>
+        </div>
+      </div>
+      <div class="code-block">SELECT DATE(日期字段) AS 日期, COUNT(统计字段) AS 数量
 FROM 业务表
 WHERE 日期字段 >= '开始时间' AND 日期字段 < '结束时间'
 GROUP BY DATE(日期字段)
 ORDER BY DATE(日期字段);</div>
-    <div style="font-size:15px; line-height:1.6;margin-top:8px;">
-      <strong>核心用途</strong>：按日期分组统计业务数据数量，通过WHERE筛选时间范围，GROUP BY按天分组，ORDER BY排序展示，可快速输出每日业务数据统计结果，用于数据核对与报表生成。
+      <div class="log-content">
+        <div class="log-list">
+          <div>2、<strong>核心用途</strong>：按日期分组统计业务数据数量，通过WHERE筛选时间范围，GROUP BY按天分组，ORDER BY排序展示，可快速输出每日业务数据统计结果，用于数据核对与报表生成</div>
+        </div>
+      </div>
     </div>
-  </div>
-<!-- ======================= 结束 =============================== -->
 
-
-<!-- ==================== 2026-04-17 ====================== -->
-<!-- ================ Docker 容器化部署 =================== -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-17</div>
-    <div style="font-size:15px; line-height:1.6;">
-      <strong>完成项目Docker容器化改造，编写Dockerfile与docker-compose配置，实现JDK、Tomcat、项目包一体化构建；编排Redis、MongoDB服务，配置网络通信与数据持久化</strong>；<strong>独立编写完整项目部署指南交付文档，确保项目可一键部署、跨环境运行</strong>。
-      常用Docker管理命令：
-    </div>
-    <div class="code-block"># 启动服务（后台）
+    <!-- 2026-04-17 Docker -->
+    <div class="card">
+      <div class="log-date">2026-04-17</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、<strong>完成项目Docker容器化改造，编写Dockerfile与docker-compose配置，实现JDK、Tomcat、项目包一体化构建</strong></div>
+          <div>2、<strong>编排Redis、MongoDB服务，配置网络通信与数据持久化</strong></div>
+          <div>3、<strong>独立编写完整项目部署指南交付文档，确保项目可一键部署、跨环境运行</strong></div>
+          <div>4、常用Docker管理命令：</div>
+        </div>
+      </div>
+      <div class="code-block"># 启动服务（后台）
 docker-compose up -d
 
 # 重新构建并启动
@@ -116,21 +200,22 @@ docker logs -f 容器名
 
 # 进入容器内部
 docker exec -it 容器名 bash</div>
-    <div style="font-size:15px; line-height:1.6;margin-top:8px;">
-      <strong>核心价值</strong>：通过容器化实现环境统一、快速交付，解决环境差异与部署复杂问题，大幅提升项目交付与运维效率。
+      <div class="log-content">
+        <div class="log-list">
+          <div>5、<strong>核心价值</strong>：通过容器化实现环境统一、快速交付，解决环境差异与部署复杂问题，大幅提升项目交付与运维效率</div>
+        </div>
+      </div>
     </div>
-  </div>
-<!-- ======================= 结束 =============================== -->
 
-
-<!-- ==================== 2026-04-17 ====================== -->
-<!-- =============== MySQL 查询数据库容量 ================= -->
-  <div style="background:#fff; border:2px solid #000; border-radius:10px; padding:16px 20px; margin-bottom:12px;">
-    <div style="font-size:14px; color:#666;">2026-04-17</div>
-    <div style="font-size:15px; line-height:1.6;">
-      <strong>使用Navicat连接MySQL，查询指定数据库占用空间大小（换算为GB单位）</strong>，用于监控数据库容量、排查磁盘占用、规划存储与服务扩容。
-    </div>
-    <div class="code-block"># 查询数据库总大小（GB）
+    <!-- 2026-04-20 MySQL -->
+    <div class="card">
+      <div class="log-date">2026-04-20</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>1、<strong>使用Navicat连接MySQL，查询指定数据库占用空间大小（换算为GB单位）</strong>，用于监控数据库容量、排查磁盘占用、规划存储与服务扩容</div>
+        </div>
+      </div>
+      <div class="code-block"># 查询数据库总大小（GB）
 SELECT
   TABLE_SCHEMA AS db_name,
   ROUND(SUM(data_length + index_length)/1024/1024/1024, 2) AS total_size_gb,
@@ -138,12 +223,13 @@ SELECT
   ROUND(SUM(index_length)/1024/1024/1024, 2) AS index_size_gb
 FROM information_schema.tables
 WHERE TABLE_SCHEMA = '数据库名';</div>
-    <div style="font-size:15px; line-height:1.6;margin-top:8px;">
-      <strong>核心用途</strong>：查询数据库真实占用磁盘空间（数据+索引），用于生产环境空间监控、数据清理、磁盘扩容评估，是数据库运维基础操作。
+      <div class="log-content">
+        <div class="log-list">
+          <div>2、<strong>核心用途</strong>：查询数据库真实占用磁盘空间（数据+索引），用于生产环境空间监控、数据清理、磁盘扩容评估，是数据库运维基础操作</div>
+        </div>
+      </div>
     </div>
-  </div>
-<!-- ======================= 结束 =============================== -->
 
-</div>
+  </div>
 
 </body>
