@@ -56,13 +56,13 @@
   .log-date {
     font-size: 14px;
     color: #666;
+    margin-bottom: 8px;
   }
 
   /* 日志内容 */
   .log-content {
     font-size: 15px;
     line-height: 1.8;
-    margin-top: 6px;
   }
 
   /* 代码框样式（模板调用） */
@@ -71,33 +71,25 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px 12px;
-    margin: 8px 0;
+    margin: 10px 0;
     font-family: monospace;
     font-size: 14px;
     line-height: 1.4;
     white-space: pre-wrap;
   }
 
-  /* 列表序号样式 */
+  /* 有序列表——真正对齐 */
   .log-list {
-    padding-left: 20px;
+    padding-left: 22px;
   }
-  .log-list li {
+  .log-list div {
     margin-bottom: 4px;
-  }
-
-  /* 电脑+手机适配 */
-  @media (max-width: 768px) {
-    body {
-      font-size: 18px;
-    }
+    position: relative;
   }
 </style>
 
 <body>
-
   <div class="container">
-
     <!-- 顶部头像+名字 -->
     <div class="card card-top">
       <img src="柴犬.png" alt="头像" class="avatar">
@@ -106,9 +98,10 @@
 
     <h2 class="title">用友采购系统实习日志</h2>
 
-    <!-- 2026-04-08 -->
+    <!-- 第一月 3月 实习初期 -->
+    <!-- 2026-03-08 -->
     <div class="card">
-      <div class="log-date">2026-04-08</div>
+      <div class="log-date">2026-03-08</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、远程连接服务器，定位登录页面与相关JS文件，梳理登录逻辑</div>
@@ -117,9 +110,9 @@
       </div>
     </div>
 
-    <!-- 2026-04-09 -->
+    <!-- 2026-03-09 -->
     <div class="card">
-      <div class="log-date">2026-04-09</div>
+      <div class="log-date">2026-03-09</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、从代码仓库克隆项目源码，完成本地部署运行</div>
@@ -129,9 +122,9 @@
       </div>
     </div>
 
-    <!-- 2026-04-10 -->
+    <!-- 2026-03-10 -->
     <div class="card">
-      <div class="log-date">2026-04-10</div>
+      <div class="log-date">2026-03-10</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、访问页面报404，原因是文件路径配置错误，修正路径后页面正常访问</div>
@@ -141,9 +134,9 @@
       </div>
     </div>
 
-    <!-- 2026-04-13 -->
+    <!-- 2026-03-13 -->
     <div class="card">
-      <div class="log-date">2026-04-13</div>
+      <div class="log-date">2026-03-13</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、<strong>熟悉项目整体结构，明确数据层、权限层、web展示层的核心职责</strong></div>
@@ -152,9 +145,10 @@
       </div>
     </div>
 
-    <!-- 2026-04-16 -->
+    <!-- 第二月 4月 实习中后期 -->
+    <!-- 2026-04-06 -->
     <div class="card">
-      <div class="log-date">2026-04-16</div>
+      <div class="log-date">2026-04-06</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、根据业务统计需求，<strong>优化SQL语句实现按日统计单据数量功能</strong>，通用SQL语句如下：</div>
@@ -172,9 +166,9 @@ ORDER BY DATE(日期字段);</div>
       </div>
     </div>
 
-    <!-- 2026-04-17 Docker -->
+    <!-- 2026-04-10 Docker -->
     <div class="card">
-      <div class="log-date">2026-04-17</div>
+      <div class="log-date">2026-04-10</div>
       <div class="log-content">
         <div class="log-list">
           <div>1、<strong>完成项目Docker容器化改造，编写Dockerfile与docker-compose配置，实现JDK、Tomcat、项目包一体化构建</strong></div>
@@ -207,29 +201,41 @@ docker exec -it 容器名 bash</div>
       </div>
     </div>
 
-    <!-- 2026-04-20 MySQL -->
+    <!-- 2026-04-15 MySQL -->
     <div class="card">
-      <div class="log-date">2026-04-20</div>
+      <div class="log-date">2026-04-15</div>
       <div class="log-content">
         <div class="log-list">
-          <div>1、<strong>使用Navicat连接MySQL，查询指定数据库占用空间大小（换算为GB单位）</strong>，用于监控数据库容量、排查磁盘占用、规划存储与服务扩容</div>
+          <div>1、<strong>使用Navicat连接MySQL，查询指定数据库中多张表总占用空间大小（换算为GB单位）</strong>，用于精准统计业务表容量、排查大表磁盘占用、规划存储与服务扩容</div>
         </div>
       </div>
-      <div class="code-block"># 查询数据库总大小（GB）
+      <div class="code-block"># 查询指定多张表总大小（GB）
 SELECT
   TABLE_SCHEMA AS db_name,
   ROUND(SUM(data_length + index_length)/1024/1024/1024, 2) AS total_size_gb,
   ROUND(SUM(data_length)/1024/1024/1024, 2) AS data_size_gb,
   ROUND(SUM(index_length)/1024/1024/1024, 2) AS index_size_gb
 FROM information_schema.tables
-WHERE TABLE_SCHEMA = '数据库名';</div>
+WHERE TABLE_SCHEMA = '数据库名'
+AND TABLE_NAME IN ('表名1','表名2','表名3','表名4','表名5','表名6');</div>
       <div class="log-content">
         <div class="log-list">
-          <div>2、<strong>核心用途</strong>：查询数据库真实占用磁盘空间（数据+索引），用于生产环境空间监控、数据清理、磁盘扩容评估，是数据库运维基础操作</div>
+          <div>2、<strong>核心用途</strong>：查询指定表真实占用磁盘空间（数据 + 索引），用于生产环境数据迁移前容量评估，同时为后续数据库编码修改与结构优化提供数据支撑</div>
         </div>
       </div>
     </div>
 
-  </div>
+    <!-- 2026-04-20 业务批次号SQL查询 -->
+    <div class="card">
+      <div class="log-date">2026-04-20</div>
+      <div class="log-content">
+        <div class="log-list">
+          <div>根据客户提供的业务批次号编写SQL语句，精准查询并修改数据库对应业务数据，完成数据核对与更新</div>
+        </div>
+      </div>
+      <div class="code-block"># 根据业务批次号查询数据
+SELECT * FROM 业务表名 WHERE 批次号字段 = '客户提供的批次号';</div>
+    </div>
 
+  </div>
 </body>
